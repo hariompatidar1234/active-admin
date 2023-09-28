@@ -29,3 +29,4 @@ Dish.create(name: 'Noodles', price: 60, restaurant_id: 3, category_id: 2)
 Dish.create(name: 'Momos', price: 110, restaurant_id: 4, category_id: 2)
 Dish.create(name: 'Momos', price: 80, restaurant_id: 5, category_id: 2)
 Dish.create(name: 'noodles', price: 75, restaurant_id: 2, category_id: 2)
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

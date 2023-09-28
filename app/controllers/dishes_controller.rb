@@ -64,7 +64,7 @@ class DishesController < ApplicationController
 
   def set_dish
     @dish = Dish.find_by_id(params[:id])
-    render json: { message: 'Dish not found' }, status: :not_found unless @dish
+    render json: { errors: 'Dish not found' }, status: :not_found unless @dish
   end
 
   def authorize_dish
