@@ -23,7 +23,7 @@ ActiveAdmin.register Dish do
       f.input :price
       f.input :category_id
       f.input :restaurant_id
-      f.file_field :picture
+      f.input :picture, as: :file
     end
     f.actions
   end
