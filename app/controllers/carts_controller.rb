@@ -6,14 +6,6 @@ class CartsController < ApplicationController
     render json: @current_user.cart
   end
 
-  def show
-    if @cart_item
-      render json: @cart_item
-    else
-      render json: { errors: 'Cart Item not found' }, status: :not_found
-    end
-  end
-
   def create
     @cart = @current_user.cart || @current_user.create_cart
     @dish = Dish.find_by_id(cart_item_params[:dish_id])
@@ -33,6 +25,14 @@ class CartsController < ApplicationController
     else
       render json: { errors: 'CartItems could not be added to cart for a different restaurant' },
              status: :unprocessable_entity
+    end
+  end
+
+  def show
+    if @cart_item
+      render json: @cart_item
+    else
+      render json: { errors: 'Cart Item not found' }, status: :not_found
     end
   end
 

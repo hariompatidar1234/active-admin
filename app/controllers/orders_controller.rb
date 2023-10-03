@@ -6,11 +6,6 @@ class OrdersController < ApplicationController
     render json: @orders, status: :ok
   end
 
-  def show
-    @orders = current_user.orders
-    render json: @orders, status: :ok
-  end
-
   def create
     @cart = current_user.cart
     if @cart.cart_items.empty?
@@ -28,6 +23,11 @@ class OrdersController < ApplicationController
         render json: { errors: @order.errors.full_messages }, status: :unprocessable_entity
       end
     end
+  end
+
+  def show
+    @orders = current_user.orders
+    render json: @orders, status: :ok
   end
 
   def create_order_items(order)

@@ -12,9 +12,6 @@ class DishesController < ApplicationController
     end
   end
 
-  def show
-    render json: @dish
-  end
 
   def create
     restaurant = Restaurant.find_by_id(params[:restaurant_id])
@@ -29,6 +26,10 @@ class DishesController < ApplicationController
     else
       render json: { error: 'You are not authorized to add a dish to this restaurant' }, status: :unauthorized
     end
+  end
+
+  def show
+    render json: @dish
   end
 
   def update

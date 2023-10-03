@@ -19,6 +19,10 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def show
+    render json: @category
+  end
+
   def update
     if @category.update(category_params)
       render json: { data: @category, message: 'Category updated' }

@@ -4,8 +4,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: true,
                     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: 'Invalid email id!!!!' }
 
+  has_one_attached :image
 
-    def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "email", "id", "name", "password", "reset_password_sent_at", "reset_password_token", "type", "updated_at"]
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "email", "id", "name", "password","image" "reset_password_sent_at", "reset_password_token", "type", "updated_at"]
   end
 end

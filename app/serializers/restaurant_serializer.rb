@@ -3,6 +3,6 @@ class RestaurantSerializer < ActiveModel::Serializer
   has_many :dishes
 
   def picture_url
-    Rails.application.routes.url_helpers.rails_blob_path(object.picture, only_path: true) if object.picture.attached?
+    Rails.application.routes.url_helpers.rails_blob_path(object.image, only_path: true) if object.image.attached?
   end
 end
