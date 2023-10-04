@@ -22,8 +22,11 @@ ActiveAdmin.register User do
     f.inputs do
       f.input :name
       f.input :email
-      f.input :type
+      f.input :type ,  label: 'Type(Customer/Owner)'
       f.input :image, as: :file
+      panel 'Markup' do
+        "The following can be used in the content below..."
+      end
     end
     f.actions
   end
@@ -38,5 +41,4 @@ ActiveAdmin.register User do
       end
     end
   end
-
 end

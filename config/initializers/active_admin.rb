@@ -349,4 +349,9 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+  # Set the CSV builder separator
+  config.csv_options = { col_sep: ';' }
+
+  # Force the use of quotes
+  config.csv_options = { force_quotes: true }
 end
