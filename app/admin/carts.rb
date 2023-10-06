@@ -12,7 +12,7 @@ ActiveAdmin.register Cart do
 
   form do |f|
     f.inputs do
-      f.input :user_id
+      f.input :user_id,hint: "User_id must be integer"
     end
     f.actions
   end

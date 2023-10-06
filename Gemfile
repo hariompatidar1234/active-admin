@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -58,6 +56,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '5.1.2'
 end
 
 group :development do
@@ -88,4 +87,20 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 gem 'activeadmin'
 gem 'devise'
+gem 'draper'
 gem 'sass-rails'
+
+# group :development, :test do
+#   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+#   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+#   gem 'shoulda-matchers', '~> 4.0'
+#   gem 'shoulda-callback-matchers'
+#   gem 'simplecov', '0.21.2'
+#   gem 'rspec-rails', '5.1.2'
+#   gem "rspec-sonarqube-formatter", '1.5.0'
+#   gem 'simplecov-json', :require => false
+#   gem 'faker'
+#   gem 'rubocop-rspec', require: false
+#   gem 'capybara'
+#   gem 'database_cleaner'
+# end

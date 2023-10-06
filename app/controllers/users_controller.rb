@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_request, except: %i[create login forgot_password reset_password]
+  # before_action :authenticate_request, except: %i[create login forgot_password reset_password]
 
   def index
     render json: User.all, status: :ok
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def destroy
     if @current_user.destroy
-      render json: { data: @current_user,message: 'User deleted' }
+      render json: { data: @current_user, message: 'User deleted' }
     else
       render json: { message: 'User deletion failed' }
     end
@@ -59,9 +59,8 @@ class UsersController < ApplicationController
   end
 
   def reset_password
-    if params[:email].blank?
-      return render json: {error: 'Token not present'}
-    end
+    return render json: { error: 'Token not present' } if params[:email].blank?
+
     user = User.find_by(reset_password_token: params[:token])
     if user && user.reset_password_sent_at > 2.hours.ago
       user.update(password: params[:password], reset_password_token: nil, reset_password_sent_at: nil)
@@ -74,6 +73,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:name, :email, :password, :type,:image)
+    params.permit(:name, :email, :password, :type, :image)
   end
 end

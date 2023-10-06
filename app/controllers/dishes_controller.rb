@@ -12,7 +12,6 @@ class DishesController < ApplicationController
     end
   end
 
-
   def create
     restaurant = Restaurant.find_by_id(params[:restaurant_id])
 
@@ -50,17 +49,24 @@ class DishesController < ApplicationController
 
   def owner_dishes
     owner_dishes = @current_user.restaurants.map(&:dishes).flatten
-    owner_dishes = owner_dishes.select { |dish| dish.name.downcase.include?(params[:name].downcase) } if params[:name].present?
-    owner_dishes = owner_dishes.select { |dish| dish.category_id == params[:category_id].to_i } if params[:category_id].present?
+    if params[:name].present?
+      owner_dishes = owner_dishes.select do |dish|
+        dish.name.downcase.include?(params[:name].downcase)
+      end
+    end
+    if params[:category_id].present?
+      owner_dishes = owner_dishes.select do |dish|
+        dish.category_id == params[:category_id].to_i
+      end
+    end
 
     render json: owner_dishes
   end
 
-
   private
 
   def dish_params
-    params.permit(:name, :price, :category_id, :restaurant_id, :picture)
+    params.permit(:name, :price, :category_id, :restaurant_id, :image)
   end
 
   def set_dish

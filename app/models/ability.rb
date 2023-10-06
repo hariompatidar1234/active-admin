@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new # Guest user
+    user ||= User.new
 
     can :manage, User
     can :login, User
@@ -13,7 +13,7 @@ class Ability
     if user.type == 'Owner'
       can :manage, [Restaurant, Category, Dish]
       can :my_restaurants_list, Restaurant
-      can :owner_dishes , Dish
+      can :owner_dishes, Dish
     elsif user.type == 'Customer'
       can :manage, Cart
       can :manage, Order

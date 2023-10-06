@@ -1,5 +1,5 @@
 ActiveAdmin.register OrderItem do
-  permit_params :dish_id,:quantity ,:order_id
+  permit_params :dish_id, :quantity, :order_id
 
   index do
     selectable_column

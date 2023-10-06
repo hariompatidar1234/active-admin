@@ -1,5 +1,5 @@
 ActiveAdmin.register CartItem do
-  permit_params :dish_id,:quantity ,:cart_id
+  permit_params :dish_id, :quantity, :cart_id
 
   index do
     selectable_column
@@ -16,9 +16,9 @@ ActiveAdmin.register CartItem do
 
   form do |f|
     f.inputs do
-      f.input :dish_id
+      f.input :dish_id, hint: "Dish_id must be integer"
       f.input :quantity
-      f.input :cart_id
+      f.input :cart_id , hint: "Cart_id must be integer"
     end
     f.actions
   end

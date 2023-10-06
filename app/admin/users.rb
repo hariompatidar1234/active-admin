@@ -1,14 +1,14 @@
 ActiveAdmin.register User do
+  # actions :all, except: [:update, :destroy,:edit]
+  permit_params :name, :email, :type, :image, :password
 
-  permit_params :name, :email,:type, :image
-
-   index do
+  index do
     selectable_column
     id_column
     column :image do |img|
-      image_tag url_for(img.image), size: "30x30" if img.image.present?
+      image_tag url_for(img.image), size: '30x30' if img.image.present?
     end
-    column :name
+    column "User Name",:name
     column :email
     column :type
     actions
@@ -16,17 +16,15 @@ ActiveAdmin.register User do
   filter :name
   filter :email
   filter :type
-  filter :created_at
 
   form do |f|
     f.inputs do
-      f.input :name
-      f.input :email
-      f.input :type ,  label: 'Type(Customer/Owner)'
-      f.input :image, as: :file
-      panel 'Markup' do
-        "The following can be used in the content below..."
-      end
+      f.input :name,label: "User Name"
+      f.input :email ,lable: "Email" , hint: "Email like [yourname@gmail.com]"
+      f.input :type, label: 'Type(Customer/Owner)'
+      f.input :password,label: "password"
+      f.input :image, as: :file ,label: "User Profile"
+      f.semantic_errors *f.object.errors.keys
     end
     f.actions
   end
@@ -37,7 +35,7 @@ ActiveAdmin.register User do
       row :email
       row :type
       row :image do |img|
-        image_tag url_for(img.image), size: "200x150" if img.image.present?
+        image_tag url_for(img.image), size: '200x150' if img.image.present?
       end
     end
   end

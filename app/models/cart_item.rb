@@ -9,7 +9,7 @@ class CartItem < ApplicationRecord
     self.total_amounts = dish_total_amounts
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["cart_id", "created_at", "dish_id", "id", "quantity", "total_amounts", "updated_at"]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[cart_id created_at dish_id id quantity total_amounts updated_at]
   end
 end

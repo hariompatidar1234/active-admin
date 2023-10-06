@@ -9,7 +9,7 @@ class Restaurant < ApplicationRecord
   validates :name, :status, :address, presence: true
   validates :name, uniqueness: { scope: :address, message: 'must be unique for each address' }
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["address", "created_at", "id", "name", "status", "image" "updated_at", "user_id"]
+  def self.ransackable_attributes(_auth_object = nil)
+    ['address', 'created_at', 'id', 'name', 'status', 'image' 'updated_at', 'user_id']
   end
 end

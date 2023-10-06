@@ -10,15 +10,13 @@ class CartsController < ApplicationController
     @cart = @current_user.cart || @current_user.create_cart
     @dish = Dish.find_by_id(cart_item_params[:dish_id])
 
-    unless @dish
-      return render json: { errors: 'Dish not found' }, status: :not_found
-    end
+    return render json: { errors: 'Dish not found' }, status: :not_found unless @dish
 
     if @cart.cart_items.empty? || same_restaurant?(@cart, @dish.restaurant)
       @cart_item = @cart.cart_items.new(dish: @dish, quantity: cart_item_params[:quantity])
 
       if @cart_item.save
-        render json: { message: 'CartItem added to cart successfully!', data: @cart_item }, status: :created
+        render json: { message: 'CartItem added to cart successfully!', data: @cart_item }, status: :creat.,ed
       else
         render json: { errors: @cart_item.errors.full_messages }, status: :unprocessable_entity
       end
@@ -85,8 +83,8 @@ class CartsController < ApplicationController
   end
 
   def cart_not_empty?
-    if @current_user.cart.cart_items.empty?
-      render json: { errors: 'Cart is empty' }, status: :unprocessable_entity
-    end
+    return unless @current_user.cart.cart_items.empty?
+
+    render json: { errors: 'Cart is empty' }, status: :unprocessable_entity
   end
 end

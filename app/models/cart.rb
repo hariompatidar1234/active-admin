@@ -4,7 +4,7 @@ class Cart < ApplicationRecord
   has_many :cart_items
   has_many :dishes, through: :cart_items
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["created_at", "id", "updated_at", "user_id"]
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[created_at id updated_at user_id]
   end
 end
