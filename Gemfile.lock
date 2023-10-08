@@ -320,6 +320,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -388,6 +390,7 @@ DEPENDENCIES
   rubocop
   sass-rails
   selenium-webdriver
+  shoulda-matchers
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
@@ -397,7 +400,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.0.6p216
 
 BUNDLED WITH
    2.4.19
