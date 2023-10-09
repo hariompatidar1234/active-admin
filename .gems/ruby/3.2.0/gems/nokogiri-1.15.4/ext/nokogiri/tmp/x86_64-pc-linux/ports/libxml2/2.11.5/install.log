@@ -1,0 +1,39 @@
+Making install in include
+make[1]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+Making install in libxml
+make[2]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/libxml'
+make[3]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/libxml'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+ /usr/bin/install -c -m 644 xmlversion.h '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+ /usr/bin/mkdir -p '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+ /usr/bin/install -c -m 644 SAX.h entities.h encoding.h parser.h parserInternals.h xmlerror.h HTMLparser.h HTMLtree.h debugXML.h tree.h list.h hash.h xpath.h xpathInternals.h xpointer.h xinclude.h xmlIO.h xmlmemory.h nanohttp.h nanoftp.h uri.h valid.h xlink.h catalog.h threads.h globals.h c14n.h xmlautomata.h xmlregexp.h xmlmodule.h xmlschemas.h schemasInternals.h xmlschemastypes.h xmlstring.h xmlunicode.h xmlreader.h relaxng.h dict.h SAX2.h xmlexports.h '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+ /usr/bin/install -c -m 644 xmlwriter.h chvalid.h pattern.h xmlsave.h schematron.h '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+make[3]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/libxml'
+make[2]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/libxml'
+Making install in private
+make[2]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/private'
+make[3]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/private'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/private'
+make[2]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/private'
+make[2]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+make[3]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+make[2]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+make[1]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+Making install in .
+make[1]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5'
+make[2]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5'
+ /usr/bin/mkdir -p '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/lib'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libxml2.la '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/lib'
+libtool: install: /usr/bin/install -c .libs/libxml2.lai /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/lib/libxml2.la
+/usr/bin/install: target '/Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/lib/libxml2.la' is not a directory
+make[2]: *** [Makefile:911: install-libLTLIBRARIES] Error 1
+make[2]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5'
+make[1]: *** [Makefile:1933: install-am] Error 2
+make[1]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5'
+make: *** [Makefile:1615: install-recursive] Error 1

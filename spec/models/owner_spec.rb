@@ -1,6 +1,4 @@
 require 'rails_helper'
-# require 'rspec/rails'
-# require 'shoulda/matchers'
 
 RSpec.describe Owner, type: :model do
   it "has many restaurants" do

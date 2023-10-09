@@ -4,6 +4,7 @@ class CartItem < ApplicationRecord
 
   before_save :total_amount
 
+  private
   def total_amount
     dish_total_amounts = quantity * dish.price
     self.total_amounts = dish_total_amounts

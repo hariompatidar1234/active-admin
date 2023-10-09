@@ -1,0 +1,143 @@
+current directory: /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri
+/usr/share/rvm/rubies/ruby-3.2.2/bin/ruby extconf.rb
+checking for whether -std=c99 is accepted as CFLAGS... yes
+checking for whether -Wno-declaration-after-statement is accepted as CFLAGS... yes
+checking for whether -O2 is accepted as CFLAGS... yes
+checking for whether -g is accepted as CFLAGS... yes
+checking for whether -Winline is accepted as CFLAGS... yes
+checking for whether -Wmissing-noreturn is accepted as CFLAGS... yes
+checking for whether -Wconversion -Wno-sign-conversion is accepted as CFLAGS... yes
+Building nokogiri using packaged libraries.
+Static linking is enabled.
+Cross build is disabled.
+Using mini_portile version 2.8.4
+checking for iconv... yes
+---------- IMPORTANT NOTICE ----------
+Building Nokogiri with a packaged version of libxml2-2.11.5.
+Configuration options: --host\=x86_64-pc-linux --enable-static --disable-shared --libdir\=/home/hp/Desktop/active\ admin\ /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/lib --with-iconv\=yes --disable-dependency-tracking --without-python --without-readline --with-c14n --with-debug --with-threads --disable-shared --enable-static CPPFLAGS\= CFLAGS\=-O2\ -U_FORTIFY_SOURCE\ -g\ -fPIC
+The following patches are being applied:
+  - 0001-Remove-script-macro-support.patch
+  - 0002-Update-entities-to-remove-handling-of-ssi.patch
+  - 0003-libxml2.la-is-in-top_builddir.patch
+  - 0009-allow-wildcard-namespaces.patch
+  - 0010-update-config.guess-and-config.sub-for-libxml2.patch
+  - 0011-rip-out-libxml2-s-libc_single_threaded-support.patch
+
+The Nokogiri maintainers intend to provide timely security updates, but if
+this is a concern for you and want to use your OS/distro system library
+instead, then abort this installation process and install nokogiri as
+instructed at:
+
+  https://nokogiri.org/tutorials/installing_nokogiri.html#installing-using-standard-system-libraries
+
+Note, however, that nokogiri cannot guarantee compatibility with every
+version of libxml2 that may be provided by OS/package vendors.
+
+Extracting libxml2-2.11.5.tar.xz into tmp/x86_64-pc-linux/ports/libxml2/2.11.5... OK
+Running git apply with /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/patches/libxml2/0001-Remove-script-macro-support.patch... OK
+Running git apply with /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/patches/libxml2/0002-Update-entities-to-remove-handling-of-ssi.patch... OK
+Running git apply with /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/patches/libxml2/0003-libxml2.la-is-in-top_builddir.patch... OK
+Running git apply with /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/patches/libxml2/0009-allow-wildcard-namespaces.patch... OK
+Running git apply with /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/patches/libxml2/0010-update-config.guess-and-config.sub-for-libxml2.patch... OK
+Running git apply with /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/patches/libxml2/0011-rip-out-libxml2-s-libc_single_threaded-support.patch... OK
+Running 'configure' for libxml2 2.11.5... OK
+Running 'compile' for libxml2 2.11.5... OK
+Running 'install' for libxml2 2.11.5... ERROR. Please review logs to see what happened:
+----- contents of '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/install.log' -----
+Making install in include
+make[1]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+Making install in libxml
+make[2]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/libxml'
+make[3]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/libxml'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /usr/bin/mkdir -p '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+ /usr/bin/install -c -m 644 xmlversion.h '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+ /usr/bin/mkdir -p '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+ /usr/bin/install -c -m 644 SAX.h entities.h encoding.h parser.h parserInternals.h xmlerror.h HTMLparser.h HTMLtree.h debugXML.h tree.h list.h hash.h xpath.h xpathInternals.h xpointer.h xinclude.h xmlIO.h xmlmemory.h nanohttp.h nanoftp.h uri.h valid.h xlink.h catalog.h threads.h globals.h c14n.h xmlautomata.h xmlregexp.h xmlmodule.h xmlschemas.h schemasInternals.h xmlschemastypes.h xmlstring.h xmlunicode.h xmlreader.h relaxng.h dict.h SAX2.h xmlexports.h '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+ /usr/bin/install -c -m 644 xmlwriter.h chvalid.h pattern.h xmlsave.h schematron.h '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/include/libxml2/libxml'
+make[3]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/libxml'
+make[2]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/libxml'
+Making install in private
+make[2]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/private'
+make[3]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/private'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/private'
+make[2]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include/private'
+make[2]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+make[3]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+make[2]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+make[1]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5/include'
+Making install in .
+make[1]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5'
+make[2]: Entering directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5'
+ /usr/bin/mkdir -p '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/lib'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libxml2.la '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/lib'
+libtool: install: /usr/bin/install -c .libs/libxml2.lai /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/lib/libxml2.la
+/usr/bin/install: target '/Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ports/x86_64-linux/libxml2/2.11.5/lib/libxml2.la' is not a directory
+make[2]: *** [Makefile:911: install-libLTLIBRARIES] Error 1
+make[2]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5'
+make[1]: *** [Makefile:1933: install-am] Error 2
+make[1]: Leaving directory '/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/nokogiri-1.15.4/ext/nokogiri/tmp/x86_64-pc-linux/ports/libxml2/2.11.5/libxml2-2.11.5'
+make: *** [Makefile:1615: install-recursive] Error 1
+----- end of file -----
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/usr/share/rvm/rubies/ruby-3.2.2/bin/$(RUBY_BASE_NAME)
+	--help
+	--clean
+	--prevent-strip
+	--enable-system-libraries
+	--disable-system-libraries
+	--use-system-libraries
+	--enable-system-libraries
+	--disable-system-libraries
+	--use-system-libraries
+	--enable-static
+	--disable-static
+	--enable-cross-build
+	--disable-cross-build
+	--enable-cross-build
+	--disable-cross-build
+	--with-zlib-dir
+	--without-zlib-dir
+	--with-zlib-include
+	--without-zlib-include=${zlib-dir}/include
+	--with-zlib-lib
+	--without-zlib-lib=${zlib-dir}/lib
+	--with-xml2-source-dir
+/home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/mini_portile2-2.8.4/lib/mini_portile2/mini_portile.rb:504:in `block in execute': Failed to complete install task (RuntimeError)
+	from /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/mini_portile2-2.8.4/lib/mini_portile2/mini_portile.rb:470:in `chdir'
+	from /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/mini_portile2-2.8.4/lib/mini_portile2/mini_portile.rb:470:in `execute'
+	from /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/mini_portile2-2.8.4/lib/mini_portile2/mini_portile.rb:177:in `install'
+	from /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/gems/mini_portile2-2.8.4/lib/mini_portile2/mini_portile.rb:216:in `cook'
+	from extconf.rb:540:in `block (2 levels) in process_recipe'
+	from extconf.rb:319:in `chdir'
+	from extconf.rb:319:in `chdir_for_build'
+	from extconf.rb:540:in `block in process_recipe'
+	from <internal:kernel>:90:in `tap'
+	from extconf.rb:438:in `process_recipe'
+	from extconf.rb:872:in `<main>'
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/hp/Desktop/active admin /Uber_Eats/.gems/ruby/3.2.0/extensions/x86_64-linux/3.2.0/nokogiri-1.15.4/mkmf.log
+
+extconf failed, exit code 1
