@@ -14,7 +14,7 @@ class Dish < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
   validates :restaurant_id, uniqueness: { scope: :name, message: 'dish already added ' }
 
-  def self.ransackable_attributes(_auth_object = nil)
-    %w[category_id created_at id name price image restaurant_id updated_at]
-  end
+  # def self.ransackable_attributes(_auth_object = nil)
+  #   %w[category_id created_at id name price image restaurant_id updated_at]
+  # end
 end

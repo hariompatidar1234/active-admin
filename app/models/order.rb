@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   has_many :dishes, through: :order_items
   validates :address, presence: true
 
-  def self.ransackable_attributes(_auth_object = nil)
-    %w[address created_at id updated_at user_id]
-  end
+  # def self.ransackable_attributes(_auth_object = nil)
+  #   %w[address created_at id updated_at user_id]
+  # end
 end

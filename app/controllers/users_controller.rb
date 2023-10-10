@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_request, except: %i[create login forgot_password reset_password]
+  before_action :authenticate_request, except: %i[create login forgot_password reset_password]
 
   def index
     render json: User.all, status: :ok
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    render json: @current_user
+    render json: @current_user, status: :ok
   end
 
   def update

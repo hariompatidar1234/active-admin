@@ -131,11 +131,13 @@ GEM
       request_store (>= 1.0)
       ruby2_keywords
     erubi (1.12.0)
-    factory_bot (6.2.1)
+    factory_bot (6.1.0)
       activesupport (>= 5.0.0)
-    factory_bot_rails (6.2.0)
-      factory_bot (~> 6.2.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
+    faker (3.2.1)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     ffi (1.15.5-x64-mingw32)
     formtastic (4.0.0)
@@ -200,8 +202,6 @@ GEM
     mini_magick (4.12.0)
     mini_mime (1.1.5)
     minitest (5.20.0)
-    mock_redis (0.34.0)
-      ruby2_keywords
     msgpack (1.7.2)
     net-imap (0.3.7)
       date
@@ -393,13 +393,13 @@ DEPENDENCIES
   debug
   devise
   draper
-  factory_bot_rails
+  factory_bot_rails (~> 6.1.0)
+  faker
   image_processing (>= 1.2)
   importmap-rails
   jbuilder
   jwt
   kaminari (~> 1.2, >= 1.2.2)
-  mock_redis (= 0.34.0)
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
   rspec-rails (= 5.1.2)

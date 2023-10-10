@@ -1,12 +1,12 @@
-class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::API
   # Include JsonWebToken module for JWT handling
   include JsonWebToken
 
   # Before every action, authenticate the request using JWT
-  # before_action :authenticate_request
+  before_action :authenticate_request
 
   # Authorize resource access using CanCanCan gem
-  # authorize_resource
+  authorize_resource
 
   private
 

@@ -59,11 +59,13 @@ group :development, :test do
   gem 'rspec-rails', '5.1.2'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'factory_bot_rails', '~> 6.1.0'
+  gem 'faker'
 end
-group :test do
-  gem 'mock_redis', '0.34.0'
-  gem 'factory_bot_rails'
-end
+# group :test do
+#   gem 'mock_redis', '0.34.0'
+#   gem 'factory_bot_rails'
+# end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -84,6 +86,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
 gem 'active_model_serializers'
 gem 'jwt'
 
