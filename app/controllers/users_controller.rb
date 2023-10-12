@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    byebug
     render json: @current_user, status: :ok
   end
 
@@ -30,18 +29,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if @current_user.destroy
+      @current_user.destroy
       render json: { data: @current_user, message: 'User deleted' }
-    else
-      render json: { message: 'User deletion failed' }
-    end
   end
 
   def login
     user = User.find_by(email: params[:email], password: params[:password])
     if user
       token = jwt_encode(user_id: user.id)
-      render json: { message: 'Logged In Successfully', token: token }
+      render json: { message: 'Logged In Successfully', token: token },status: :ok
     else
       render json: { error: 'Please Check your Email and Password' }, status: :unauthorized
     end
@@ -68,7 +64,7 @@ class UsersController < ApplicationController
       user.update(password: params[:password], reset_password_token: nil, reset_password_sent_at: nil)
       render json: { message: 'password reset Successfully' }, status: :ok
     else
-      render json: { errors: 'invalid and token expired' }
+      render json: { errors: 'invalid and token expired' } , status: :unprocessable_entity
     end
   end
 

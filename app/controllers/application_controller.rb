@@ -11,6 +11,7 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate_request
+    byebug
     header = request.headers['Authorization']
     header = header.split(' ').last if header
 
@@ -18,7 +19,7 @@ class ApplicationController < ActionController::API
       decoded = jwt_decode(header)
       @current_user = User.find(decoded[:user_id])
     rescue JWT::DecodeError
-      render json: { error: 'Invalid token' }, status: :unprocessable_entity
+      render json: { error: 'Invalid token' }, status: 500
     rescue ActiveRecord::RecordNotFound
       render json: { error: 'User not found' }, status: :not_found
     end
