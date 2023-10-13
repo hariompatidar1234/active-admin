@@ -2,14 +2,9 @@ require 'rails_helper'
 include JsonWebToken
 
 RSpec.describe "Users", type: :request do
-   let!(:user) { FactoryBot.build(:user) }
-  let(:valid_jwt) { generate_valid_jwt(user) }
-  # Define a method to generate a valid JWT token for a user
-  def generate_valid_jwt(user)
-    payload = { user_id: user.id }
-    secret_key = Rails.application.secrets.secret_key_base
-    JWT.encode(payload, secret_key)
-  end
+  let!(:user) { FactoryBot.build(:user) }
+  let!(:user) { FactoryBot.create(:user) }
+  let(:valid_jwt) { jwt_encode(user_id: user.id) }
 
   describe 'GET /users' do
     it 'returns a list of users with valid JWT' do
@@ -46,7 +41,7 @@ RSpec.describe "Users", type: :request do
       put '/profile' , headers: { 'Authorization' => "Bearer #{valid_jwt}"},params: {name: "hariom",email: "hariom@123gmail.com",password: "1234567"}
       expect(response).to have_http_status(:ok)
     end
-    it 'returns unprocessable_entity without a valid JWT' do
+    it 'returns unprocessable_entity ' do
       user.save
         put '/profile', params: {name: nil ,email: nil} , headers: { 'Authorization' => "Bearer #{valid_jwt}"}
         expect(response).to have_http_status(:unprocessable_entity)

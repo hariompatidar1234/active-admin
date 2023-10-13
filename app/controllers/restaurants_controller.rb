@@ -1,6 +1,5 @@
-class RestaurantsController < ApplicationController
+  class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[show update destroy]
-
   def index
     restaurants = Restaurant.all
     restaurants = if params[:name]
@@ -16,9 +15,10 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    # byebug
     restaurant = @current_user.restaurants.new(restaurant_params)
     if restaurant.save
-      render json: { data: restaurant, message: 'Restaurant added successfully' }, status: :created
+      render json: { data: restaurant, message: 'Restaurant added successfully' }, status: 201
     else
       render json: { errors: restaurant.errors.full_messages }, status: :unprocessable_entity
     end
@@ -29,6 +29,7 @@ class RestaurantsController < ApplicationController
   end
 
   def update
+    # byebug
     if @restaurant.owner == @current_user
       if @restaurant.update(restaurant_params)
         render json: { data: @restaurant, message: 'Updated successfully' }
@@ -42,22 +43,20 @@ class RestaurantsController < ApplicationController
 
   def destroy
     if @restaurant.owner == @current_user
-      if @restaurant.destroy
-        render json: { data: @restaurant, message: 'Restaurant deleted successfully' }
-      else
-        render json: { errors: @restaurant.errors.full_messages }, status: :unprocessable_entity
-      end
+      @restaurant.destroy
+      render json: { data: @restaurant, message: 'Restaurant deleted successfully' }
     else
       render json: { error: 'You are not authorized to delete this restaurant' }, status: :unauthorized
     end
   end
 
   def my_restaurants_list
+    byebug
     restaurants = @current_user.restaurants
     if restaurants.any?
-      render json: restaurants
+      render json: restaurants,status: :ok
     else
-      render json: { message: "You haven't added any restaurants yet." }, status: :ok
+      render json: { message: "You haven't added any restaurants yet." }
     end
   end
 

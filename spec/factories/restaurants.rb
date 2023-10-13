@@ -3,6 +3,6 @@ FactoryBot.define do
     name          { Faker::Restaurant.name }
     address       { Faker::Address.city}
     status        {['open','closed'].sample}
-    association :user , factory: :user,type: 'Owner'
+    user_id { FactoryBot.create(:user, type: "Owner").id }
   end
 end
