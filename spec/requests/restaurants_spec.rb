@@ -43,7 +43,7 @@ RSpec.describe "Restaurants", type: :request do
         expect(response).to have_http_status(422)
       end
     end
-  end 
+  end
 
   describe "GET /restaurants/id" do
     it "return restaurant" do
@@ -61,7 +61,7 @@ RSpec.describe "Restaurants", type: :request do
           headers: { 'Authorization' => "Bearer #{jwt_encode(user_id: owner.id)}" }
 
       expect(response).to have_http_status(200) # You expect a 200 status for a successful update
-    end 
+    end
     it "returns unprocessable_entity for invalid data" do
       owner = FactoryBot.create(:user, type: 'Owner')
       restaurant = FactoryBot.create(:restaurant, user_id: owner.id)
@@ -94,8 +94,9 @@ RSpec.describe "Restaurants", type: :request do
     end
     it "returns unauthorized" do
       owner = FactoryBot.create(:user, type: 'Owner')
-      restaurant = FactoryBot.create(:restaurant, user_id: owner.id)
-      delete "/restaurants/#{restaurant.id}", headers: { 'Authorization' => "Bearer #{jwt_encode(user_id: user.id)}" }
+      owner1 = FactoryBot.create(:user, type: 'Owner')
+      restaurant = FactoryBot.create(:restaurant, user_id: owner1.id)
+      delete "/restaurants/#{restaurant.id}", headers: { 'Authorization' => "Bearer #{jwt_encode(user_id: owner.id)}" }
 
       expect(response).to have_http_status(:unauthorized) # Expect a 401 status for unauthorized access
     end
@@ -108,9 +109,13 @@ RSpec.describe "Restaurants", type: :request do
        get "/restaurants/my_restaurants_list", headers: { 'Authorization' => "Bearer #{jwt_encode(user_id: user_owner.id)}" }
       expect(response).to have_http_status(:ok)
     end
-    # it "returns a message for users without restaurants" do
-    #   get '/restaurants/my_restaurants_list', headers: { 'Authorization' => "Bearer #{valid_jwt}" }
-    #   expect(response).to have_http_status(:401)
-    # end
+    it "no restaurant found" do
+      owner = FactoryBot.create(:user, type: 'Owner')
+      owner1 = FactoryBot.create(:user, type: 'Owner')
+      restaurant = FactoryBot.create(:restaurant, user_id: owner1.id)
+      get "/restaurants/my_restaurants_list", headers: { 'Authorization' => "Bearer #{jwt_encode(user_id: owner.id)}" }
+      expect(response).to have_http_status(404)
+    end
+
   end
 end

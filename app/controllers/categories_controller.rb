@@ -20,7 +20,6 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    byebug
     if @category.update(category_params)
       render json: { data: @category, message: 'Category updated' },status: :ok
     else

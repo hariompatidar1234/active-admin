@@ -56,7 +56,7 @@
     if restaurants.any?
       render json: restaurants,status: :ok
     else
-      render json: { message: "You haven't added any restaurants yet." } , status: :no_content
+      render json: { message: "You haven't added any restaurants yet." } , status: :not_found
     end
   end
 
