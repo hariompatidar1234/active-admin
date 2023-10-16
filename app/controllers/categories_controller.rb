@@ -3,11 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     categories = Category.all
-    render json: categories
-  end
-
-  def show
-    render json: @category
+    render json: categories,status: :ok
   end
 
   def create
@@ -20,12 +16,13 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    render json: @category
+    render json: @category,status: :ok
   end
 
   def update
+    byebug
     if @category.update(category_params)
-      render json: { data: @category, message: 'Category updated' }
+      render json: { data: @category, message: 'Category updated' },status: :ok
     else
       render json: { errors: @category.errors.full_messages }, status: :unprocessable_entity
     end
@@ -33,9 +30,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     if @category.destroy
-      render json: { message: 'Category deleted' }
-    else
-      render json: { errors: @category.errors.full_messages }, status: :unprocessable_entity
+      render json: { message: 'Category deleted' },status: :ok
     end
   end
 
@@ -46,7 +41,7 @@ class CategoriesController < ApplicationController
   end
 
   def set_category
-    @category = Category.find_by_name(params[:category_name])
+    @category = Category.find_by_id(params[:id])
     render json: { error: 'Category not found by name' }, status: :not_found unless @category
   end
 end

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate_request
-    byebug
+    # byebug
     header = request.headers['Authorization']
     header = header.split(' ').last if header
 

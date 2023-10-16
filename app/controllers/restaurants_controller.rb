@@ -51,12 +51,12 @@
   end
 
   def my_restaurants_list
-    byebug
+    # byebug
     restaurants = @current_user.restaurants
     if restaurants.any?
       render json: restaurants,status: :ok
     else
-      render json: { message: "You haven't added any restaurants yet." }
+      render json: { message: "You haven't added any restaurants yet." } , status: :no_content
     end
   end
 

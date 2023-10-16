@@ -5,10 +5,10 @@ class DishesController < ApplicationController
   def index
     if params[:restaurant_id]
       restaurant = Restaurant.find_by_id(params[:restaurant_id])
-      render json: filter_dishes(restaurant.dishes)
+      render json: filter_dishes(restaurant.dishes),status: :ok
     else
       dishes = Dish.all
-      render json: filter_dishes(dishes)
+      render json: filter_dishes(dishes),status: :ok
     end
   end
 
@@ -28,12 +28,12 @@ class DishesController < ApplicationController
   end
 
   def show
-    render json: @dish
+    render json: @dish,status: :ok
   end
 
   def update
     if @dish.update(dish_params)
-      render json: { data: @dish, message: 'Dish updated successfully!' }
+      render json: { data: @dish, message: 'Dish updated successfully!' },status: :ok
     else
       render json: { errors: @dish.errors.full_messages }, status: :unprocessable_entity
     end
@@ -41,9 +41,7 @@ class DishesController < ApplicationController
 
   def destroy
     if @dish.destroy
-      render json: { data: @dish, message: 'Dish successfully deleted' }
-    else
-      render json: { errors: 'Dish deletion failed' }
+      render json: { data: @dish, message: 'Dish successfully deleted' },status: :ok
     end
   end
 
@@ -60,8 +58,9 @@ class DishesController < ApplicationController
       end
     end
 
-    render json: owner_dishes
+    render json: owner_dishes,status: :ok
   end
+
 
   private
 
