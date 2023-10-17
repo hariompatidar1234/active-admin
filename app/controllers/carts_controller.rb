@@ -11,7 +11,6 @@
       @dish = Dish.find_by_id(cart_item_params[:dish_id])
 
       return render json: { errors: 'Dish not found' }, status: :not_found unless @dish
-
       if @cart.cart_items.empty? || same_restaurant?(@cart, @dish.restaurant)
         @cart_item = @cart.cart_items.new(dish: @dish, quantity: cart_item_params[:quantity])
 
@@ -28,7 +27,7 @@
 
     def show
       if @cart_item
-        render json: @cart_item
+        render json: @cart_item, status: :ok
       else
         render json: { errors: 'Cart Item not found' }, status: :not_found
       end
@@ -64,7 +63,7 @@
         cart_items.destroy_all
         render json: 'All Cart Items Removed Successfully', status: :ok
       else
-        render json: 'Cart is empty'
+        render json: 'Cart is empty',status: :no_contant
       end
     end
 

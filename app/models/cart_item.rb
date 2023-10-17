@@ -1,4 +1,6 @@
 class CartItem < ApplicationRecord
+  validates :quantity,  presence: true, numericality: { greater_than: 1 }
+
   belongs_to :cart
   belongs_to :dish
 

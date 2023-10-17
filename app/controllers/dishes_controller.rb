@@ -74,9 +74,7 @@ class DishesController < ApplicationController
   end
 
   def authorize_dish
-    return if @dish&.restaurant&.owner == @current_user
-
-    render json: { error: 'You are not authorized to perform this action on this dish' }, status: :unauthorized
+    render json: { error: 'You are not authorized to perform this action on this dish' }, status: :unauthorized unless @dish&.restaurant&.owner == @current_user
   end
 
   def filter_dishes(dishes)

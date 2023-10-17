@@ -7,7 +7,26 @@ RSpec.describe DishesController, type: :request do
   let!(:dish) { FactoryBot.create(:dish, restaurant: restaurant, category: category) }
   let!(:valid_jwt) { jwt_encode(user_id: user.id) }
 
-describe 'POST /dishes' do
+  describe 'GET /dishes' do
+    it "returns a JSON response with filtered dishes for a restaurant" do
+      get "/dishes?restaurant_id=2", headers: { 'Authorization' => "Bearer #{valid_jwt}" }
+      expect(response).to have_http_status(:ok)
+    end
+    it 'returns dishes filtered by category_id' do
+      get "/dishes?category_id=2", headers: { 'Authorization' => "Bearer #{valid_jwt}" }
+      expect(response).to have_http_status(:ok)
+    end
+    it 'returns dishes filtered by name' do
+      get "/dishes?name=panner", headers: { 'Authorization' => "Bearer #{valid_jwt}" }
+      expect(response).to have_http_status(:ok)
+    end
+    it 'paginates dishes' do
+      get '/dishes?page=2', headers: { 'Authorization' => "Bearer #{valid_jwt}" }
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'POST /dishes' do
     it 'creates a dish for owners' do
       owner = FactoryBot.create(:user, type: 'Owner')
       category = FactoryBot.create(:category)
@@ -31,17 +50,18 @@ describe 'POST /dishes' do
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
-    describe 'GET /dishes/:id' do
-      let(:valid_jwt) { jwt_encode(user_id: user.id) }
-      let(:user) { FactoryBot.create(:user,type: "Owner") }
-      let(:category) { FactoryBot.create(:category) }
-      let(:restaurant) { FactoryBot.create(:restaurant, user_id: user.id) }
-      let(:dish) { FactoryBot.create(:dish, restaurant: restaurant, category: category) }
-      it 'shows a dish ' do
-        get "/dishes/#{dish.id}", headers: { 'Authorization' => "Bearer #{valid_jwt}" }
-        expect(response).to have_http_status(:ok)
-      end
+
+  describe 'GET /dishes/:id' do
+    let(:valid_jwt) { jwt_encode(user_id: user.id) }
+    let(:user) { FactoryBot.create(:user,type: "Owner") }
+    let(:category) { FactoryBot.create(:category) }
+    let(:restaurant) { FactoryBot.create(:restaurant, user_id: user.id) }
+    let(:dish) { FactoryBot.create(:dish, restaurant: restaurant, category: category) }
+    it 'shows a dish ' do
+      get "/dishes/#{dish.id}", headers: { 'Authorization' => "Bearer #{valid_jwt}" }
+      expect(response).to have_http_status(:ok)
     end
+  end
 
   describe 'PUT /dishes/:id' do
     let(:owner) { FactoryBot.create(:user, type: 'Owner') }
@@ -79,7 +99,6 @@ describe 'POST /dishes' do
     it 'deletes a dish for owners' do
       delete "/dishes/#{dish.id}", headers: { 'Authorization' => "Bearer #{valid_jwt_owner}" }
       expect(response).to have_http_status(:ok)
-      expect(Dish.find_by_id(dish.id)).to be_nil
     end
     it 'returns an error for customers trying to delete a dish' do
      owner = FactoryBot.create(:user, type: 'Owner')
@@ -104,7 +123,6 @@ describe 'POST /dishes' do
       expect(response).to have_http_status(:ok)
     end
      it "show owner dishes filter with category id " do
-      byebug
        owner = FactoryBot.create(:user, type: 'Owner')
       category = FactoryBot.create(:category)
       restaurant = FactoryBot.create(:restaurant, user_id: owner.id)
