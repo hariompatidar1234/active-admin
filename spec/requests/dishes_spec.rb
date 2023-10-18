@@ -1,11 +1,20 @@
 require 'rails_helper'
 include JsonWebToken
 RSpec.describe DishesController, type: :request do
-  let!(:user) { FactoryBot.create(:user) }
-  let!(:category) { FactoryBot.create(:category) }
-  let!(:restaurant) { FactoryBot.create(:restaurant) }
-  let!(:dish) { FactoryBot.create(:dish, restaurant: restaurant, category: category) }
-  let!(:valid_jwt) { jwt_encode(user_id: user.id) }
+  # let!(:user) { FactoryBot.create(:user) }
+  # let!(:category) { FactoryBot.create(:category) }
+  # let!(:restaurant) { FactoryBot.create(:restaurant) }
+  # let!(:dish) { FactoryBot.create(:dish, restaurant: restaurant, category: category) }
+  # let!(:valid_jwt) { jwt_encode(user_id: user.id) }
+  before   do
+    @owner = FactoryBot.create(:user, type: "Owner")
+    @user = FactoryBot.create(:user)
+    @restaurant = FactoryBot.create(:restaurant, user_id: @owner.id)
+    @category = FactoryBot.create(:category)
+    @dish = FactoryBot.create(:dish, restaurant_id: @restaurant.id, category_id: @category.id)
+    @cart= FactoryBot.create(:cart, user_id: @user.id)
+    @cartitem = FactoryBot.create(:cart_item, cart_id: @cart.id, dish_id: @dish.id)
+  end
 
   describe 'GET /dishes' do
     it "returns a JSON response with filtered dishes for a restaurant" do

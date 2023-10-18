@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
       @order = current_user.orders.new(address: params[:address])
 
       if @order.save
-        # OrderMailer.order_confirm(@current_user).deliver_now
+        # OrderMailer.orzder_confirm(@current_user).deliver_now
         create_order_items(@order)
         render json: { data: @order, message: 'Order created successfully!' },
                status: :created
