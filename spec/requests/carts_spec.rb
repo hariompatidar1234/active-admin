@@ -29,7 +29,6 @@ RSpec.describe CartsController, type: :request do
     end
     it "returns an error for invalid cart creation" do
       @restaurant1 = FactoryBot.create(:restaurant, user_id: @owner.id)
-     # @category = FactoryBot.create(:category)
       @dish1 = FactoryBot.create(:dish, restaurant_id: @restaurant1.id, category_id: @category.id)
       post "/carts" , params: {quantity: 6 , dish_id: @dish1.id}, headers: { 'Authorization' => "Bearer #{jwt_encode(user_id: @user.id) }" }
       expect(response).to have_http_status(422)
@@ -71,16 +70,4 @@ RSpec.describe CartsController, type: :request do
       expect(response).to have_http_status(:not_found)
     end
   end
-
-  describe 'DELETE /carts/:id' do
-    it "delete  all cart_item" do
-      delete "/carts/destroy_all" , headers: { 'Authorization' => "Bearer #{jwt_encode(user_id: @user.id) }" }
-      expect(response).to have_http_status(:ok)
-    end
-    it "returns an error for a non-existent cart item" do
-      delete "/carts/destroy_all" , headers: { 'Authorization' => "Bearer #{jwt_encode(user_id: @user.id) }" }
-      expect(response).to have_http_status(:no_contant)
-    end
-  end
-
 end

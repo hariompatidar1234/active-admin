@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     user = User.new(user_params)
 
     if user.save
-      # UserMailer.with(user: user).welcome_email.deliver_now
+      UserMailer.with(user: user).welcome_email.deliver_now
       render json: user, status: :created
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity

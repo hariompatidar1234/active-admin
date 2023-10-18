@@ -29,7 +29,6 @@
   end
 
   def update
-    # byebug
     if @restaurant.owner == @current_user
       if @restaurant.update(restaurant_params)
         render json: { data: @restaurant, message: 'Updated successfully' }

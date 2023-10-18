@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     @cart = current_user.cart
     if @cart.cart_items.empty?
       render json: { message: 'Cart is empty. Cannot create an order with an empty cart.' },
-             status: :unprocessable_entity
+             status: :no_content
     else
       @order = current_user.orders.new(address: params[:address])
 

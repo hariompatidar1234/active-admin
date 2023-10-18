@@ -56,16 +56,7 @@
       end
     end
 
-    def destroy_all
-      cart_items = @current_user.cart.cart_items
-
-      if cart_items.any?
-        cart_items.destroy_all
-        render json: 'All Cart Items Removed Successfully', status: :ok
-      else
-        render json: 'Cart is empty',status: :no_contant
-      end
-    end
+    private
 
     private
 
@@ -78,12 +69,13 @@
     end
 
     def find_cart_item
-      @cart_item = @current_user.cart.cart_items.find_by_id(params[:id])
+      @cart_item = @current_user&.cart&.cart_items&.find_by_id(params[:id])
     end
 
     def cart_not_empty?
-      return unless @current_user.cart.cart_items.empty?
-
-      render json: { errors: 'Cart is empty' }, status: :unprocessable_entity
+      if @current_user&.cart&.cart_items&.empty?
+        render json: { error: 'Cart is empty' }, status: :unprocessable_entity
+      end
     end
+
   end
