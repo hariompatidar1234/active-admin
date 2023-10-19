@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       token = jwt_encode(user_id: user.id)
       render json: { message: 'Logged In Successfully', token: token },status: :ok
     else
-      render json: { error: 'Please Check your Email and Password' }, status: :unauthorized
+      render json: { error: 'Please Check your Email and Password' }, status: :forbidden
     end
   end
 
